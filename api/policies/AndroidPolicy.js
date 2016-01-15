@@ -4,7 +4,7 @@ module.exports = function(req,res,next){
 	console.log(checkToken);
 	
 	if(checkToken.token !== token)
-		return res.json({"error":true,"message":"You are not allowed to access this URL"});
+		return res.forbidden({"error":true,"message":"You are not allowed to access this URL"});
 	
 	return next();
 }

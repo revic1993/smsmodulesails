@@ -7,7 +7,9 @@ module.exports = {
 		},
 		mobile:{
 			type:"integer",
-			required:true
+			required:true,
+			maxLength:10,
+			minLength:10
 		},
 		otp:{
 			type:"integer",
@@ -19,6 +21,12 @@ module.exports = {
 		status:{
 			type:"string",
 			required:true
+		},
+		toJSON:function(){
+			var obj = this.toObject();
+			delete obj.createdAt;
+			delete obj.updatedAt;
+			return obj;
 		}
 	}
 };
